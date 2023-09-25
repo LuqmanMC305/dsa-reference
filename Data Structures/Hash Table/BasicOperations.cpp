@@ -4,63 +4,46 @@
 
 using namespace std;
 
-void access(const unordered_map<string, int> &myMap)
+int main()
 {
-    for(const auto &i : myMap)
+    unordered_map<int, string> map;
+    
+    //Insert key-value pairs
+
+    map[0] = "Zero";
+    map[1] = "One";
+    map[2] = "Two";
+    map[3] = "Three";
+
+    //Display value of the key
+    cout << map[0] << endl;
+
+    //Modify the value of the key
+    map[0] = "zero";
+
+    //Search the value given the key
+    int value = 1;
+    if(map.find(value) != map.end())
     {
-        cout << "Key: " << i.first << ", Value: " << i.second << endl; 
-    }
-}
-
-void append(unordered_map<string, int> &myMap)
-{
-    myMap["Guava"] = 10;
-    myMap.insert({"Peach", 6});
-}
-
-void deleteElement(unordered_map<string, int> &myMap)
-{
-    myMap.erase("Apple");
-}
-
-void findElement(unordered_map<string, int> &myMap)
-{
-    string toFind = "Banana";
-    auto iterator = myMap.find(toFind);
-
-    if(iterator != myMap.end())
-    {
-        cout << "Found & its value is " << iterator->second << endl;
+        cout << value << " found!" << endl;
     }
     else
     {
-        cout << "Not found." << endl;
+        cout << value << " not found!" << endl;
     }
-}
 
-int main()
-{
-    unordered_map<string, int> myMap;
+    //Delete key-value pair given key
+    map.erase(0);
 
-    myMap = {
-        {"Apple", 5},
-        {"Banana", 7},
-        {"Cherry", 3},
-        {"Pineapple", 4},
-        {"Papaya", 2}
-    };
-    
-    append(myMap);
-    //access(myMap);
-    //deleteElement(myMap);
+    //Size of hash table
+    cout << "Size: " << map.size() << endl;
 
-    cout << endl;
-    findElement(myMap);
+    //Loop through each elements of map
+    for(const auto &element : map)
+    {
+        cout << element.first << " " << element.second << endl;
+    }
 
-    //Size of hash map
-
-    cout << "The size of hash map is: " << myMap.size() << endl;
-    
 
     return 0;
 }
