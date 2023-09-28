@@ -1,27 +1,30 @@
 #ifndef BINARYTREE_
 #define BINARYTREE_
 
-
 class BinaryTree
 {
     private:
-      struct TreeNode
+      struct Node
       {
          int value;
-         TreeNode* left;
-         TreeNode* right;
+         Node* left;
+         Node* right;
       };
-      TreeNode* root;
+      
 
     public:
       BinaryTree() : root(nullptr) {}
-      void preOrderTraversal(TreeNode* root);
-      void inOrderTraversal(TreeNode* root);
-      void postOrderTraversal(TreeNode* root);
-      TreeNode* createNode(int value);
-      TreeNode* insert(TreeNode* root, int value);
+      void inOrderTraversal(Node* root);
+      void preOrderTraversal(Node* root);
+      void postOrderTraversal(Node* root);
+      void insert(int newValue);
+      Node* insertNode(Node* root, int newValue);
+      void deleteNode(int targetValue);
+      Node* deleteNode(Node* &root, int targetValue);
+      Node* inOrderSuccesor(Node* node);
+
+
+      Node* root;
 };
-
-
 
 #endif
