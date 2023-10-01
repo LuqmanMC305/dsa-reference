@@ -2,28 +2,25 @@
 #include <iostream>
 
 int main() {
-    BinaryTree tree;
-    
-    tree.insert(50);
-    tree.insert(30);
-    tree.insert(70);
-    tree.insert(20);
-    tree.insert(40);
-    tree.insert(60);
-    tree.insert(80);
+    BinaryTree tree1;
 
-    tree.deleteNode(20);
+    tree1.insert(4);
+    tree1.insert(2);
+    tree1.insert(7);
+    tree1.insert(1);
+    tree1.insert(3);
+    tree1.insert(6);
+    tree1.insert(9);
 
-    std::cout << "Pre-Order Traversal: " << std::endl;
-    tree.preOrderTraversal(tree.root);
 
     std::cout << "\nIn-Order Traversal: " << std::endl;
-    tree.inOrderTraversal(tree.root);
+    tree1.preOrderTraversal(tree1.root);
+    std::cout << std::endl;
 
-    std::cout << "\nPost-Order Traversal: " << std::endl;
-    tree.postOrderTraversal(tree.root);
-   
-    
+    tree1.invertTree(tree1.root);
+    tree1.preOrderTraversal(tree1.root);
+
+
     return 0;
 }
 

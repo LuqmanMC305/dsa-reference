@@ -22,6 +22,7 @@ class BinaryTree
       void deleteNode(int targetValue);
       Node* deleteNode(Node* &root, int targetValue);
       Node* inOrderSuccesor(Node* node);
+      Node* invertTree(Node* root);
 
 
       Node* root;

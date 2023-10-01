@@ -1,47 +1,45 @@
 #include "binarytree.h"
 #include <iostream>
+#include <queue>
 
 void BinaryTree::preOrderTraversal(Node* root)
 {
-    if(root == nullptr)
+    if(!root)
     {
         return;
     }
-    else
-    {
-        std::cout << root->value << " ";
-        preOrderTraversal(root->left);
-        preOrderTraversal(root->right);
-    }
+
+    std::cout << root->value << " ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
+    
 }
 
 
 void BinaryTree::inOrderTraversal(Node* root)
 {
-    if(root == nullptr)
+    if(!root)
     {
         return;
     }
-    else
-    {
-        inOrderTraversal(root->left);
-        std::cout << root->value << " ";
-        inOrderTraversal(root->right);
-    }
+ 
+    inOrderTraversal(root->left);
+    std::cout << root->value << " ";
+    inOrderTraversal(root->right);
+
 }
 
 void BinaryTree::postOrderTraversal(Node* root)
 {
-    if(root == nullptr)
+    if(!root)
     {
         return;
     }
-    else
-    {
-        postOrderTraversal(root->left);
-        postOrderTraversal(root->right);
-        std::cout << root->value << " ";
-    }
+  
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+    std::cout << root->value << " ";
+    
 }
 
 void BinaryTree::insert(int newValue)
@@ -138,6 +136,26 @@ BinaryTree::Node* BinaryTree::deleteNode(Node* &root, int targetValue)
     return root;
     
 }
+
+BinaryTree::Node* BinaryTree::invertTree(Node* root)
+{
+   if(!root)
+   {
+      return root;
+   }
+
+   Node* temp = root->left;
+   root->left = root->right;
+   root->right = temp;
+
+   root->left = invertTree(root->left);
+   root->right = invertTree(root->right);
+
+   return root;
+
+
+}
+
 
 
 
