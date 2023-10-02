@@ -17,8 +17,14 @@ int main() {
     tree1.preOrderTraversal(tree1.root);
     std::cout << std::endl;
 
+    std::cout << "\n BFS Search (from left to right):"  << std::endl;
+    tree1.bfs(tree1.root);
+    std::cout << std::endl;
+    
     tree1.invertTree(tree1.root);
     tree1.preOrderTraversal(tree1.root);
+
+    
 
 
     return 0;
