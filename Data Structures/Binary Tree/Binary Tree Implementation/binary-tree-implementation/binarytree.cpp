@@ -58,7 +58,8 @@ BinaryTree::Node* BinaryTree::insertNode(Node* root, int newValue)
 
         return newNode;
     }
-
+    
+    //Update left or right pointers
     if(newValue > root->value)
     {
         root->right = insertNode(root->right, newValue);
@@ -147,7 +148,8 @@ BinaryTree::Node* BinaryTree::invertTree(Node* root)
    Node* temp = root->left;
    root->left = root->right;
    root->right = temp;
-
+  
+   //Update left & right pointers
    root->left = invertTree(root->left);
    root->right = invertTree(root->right);
 
