@@ -78,11 +78,12 @@ void BinaryTree::deleteNode(int targetValue)
     root = deleteNode(root, targetValue);
 }
 
-BinaryTree::Node* BinaryTree::inOrderSuccesor(Node* node)
+BinaryTree::Node* BinaryTree::inOrderSuccessor(Node* node)
 {
+    //Find leftmost node of right subtree
     while(node->left != nullptr)
     {
-        node = node->left;
+        node = node->left; 
     }
 
     return node;
@@ -125,11 +126,11 @@ BinaryTree::Node* BinaryTree::deleteNode(Node* &root, int targetValue)
 
        // Case 2: node with two children
 
-       temp = inOrderSuccesor(root->right);
+       temp = inOrderSuccessor(root->right); //Find in-order successor
 
-       root->value = temp->value;
+       root->value = temp->value; //Replace node value (to be deleted) with in-order successor's value
 
-       root->right = deleteNode(root->right, temp->value);
+       root->right = deleteNode(root->right, temp->value); //Deleting the in-order successor
 
 
     }
