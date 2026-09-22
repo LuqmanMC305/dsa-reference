@@ -24,5 +24,13 @@ int main() {
 
     cout << s << '\n';
 
+    // Convert string to int
+    string num = "42";
+    cout << stoi(num) << '\n';
+
+    // Convert int to string
+    int numToStr = 42;
+    cout << to_string(42) << '\n';
+
     return 0;
 }
